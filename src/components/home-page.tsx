@@ -65,7 +65,7 @@ export function HomePage({ totalAtletas, totalCuriosidades }: { totalAtletas: nu
   return (
     <main>
       <nav className="nav wrap" aria-label="Navegação principal">
-        <a className="brand" href="#inicio" aria-label="Olímpica, início"><span className="brand-mark">O</span> olímpica<span className="brand-dot">.</span></a>
+        <a className="brand" href="#inicio" aria-label="Olímpica, início"><Image className="brand-mark" src="/logo-olimpica.svg" alt="" width={34} height={34} priority /> olímpica<span className="brand-dot">.</span></a>
         <a className="nav-link" href="#explorar">Explorar <span aria-hidden="true">↗</span></a>
       </nav>
 
@@ -144,7 +144,7 @@ export function HomePage({ totalAtletas, totalCuriosidades }: { totalAtletas: nu
         </div>
       </section>
 
-      <footer className="footer"><div className="wrap footer-inner"><a className="brand" href="#inicio"><span className="brand-mark">O</span> olímpica<span className="brand-dot">.</span></a><p>Feito para quem acredita que toda conquista tem uma história.</p><span className="signature">Criada por: <strong>Iasmin Angel</strong></span><span>© 2026 · BRASIL</span></div></footer>
+      <footer className="footer"><div className="wrap footer-inner"><a className="brand" href="#inicio" aria-label="Olímpica, início"><Image className="brand-mark" src="/logo-olimpica.svg" alt="" width={30} height={30} /> olímpica<span className="brand-dot">.</span></a><p>Feito para quem acredita que toda conquista tem uma história.</p><span className="signature">Criada por: <strong>Iasmin Angel</strong></span><span>© 2026 · BRASIL</span></div></footer>
     </main>
   );
 }
