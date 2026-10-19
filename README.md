@@ -1,36 +1,32 @@
-# Project_Sport
-Projeto desenvolvido com base aos esportistas das olimpíadas com disponibilidade a procura. 
+# Olímpica — histórias que inspiram
 
-Aplicação de Busca de Atletas
-- Descrição
-Esta aplicação web permite pesquisar por atletas em um banco de dados. O usuário digita o nome de um atleta ou uma palavra-chave relacionada e a aplicação exibe os resultados correspondentes, incluindo nome, descrição e um link para mais informações.
+Aplicação Next.js para pesquisar atletas brasileiros e descobrir curiosidades sobre os Jogos Olímpicos. A interface em português consome os Route Handlers da própria aplicação.
 
-Estrutura dos Arquivos
-- index.html: Arquivo principal que contém a estrutura HTML da página.
-- style.css: Arquivo CSS responsável pelo estilo visual da página.
-- dados.js: Arquivo JavaScript que contém o array dados com as informações dos atletas (ex: nome, descrição, link).
-- app.js: Arquivo JavaScript que contém a lógica da aplicação, incluindo a função pesquisar().
+## Requisitos
 
-Funcionamento
-- Interface do Usuário: O usuário digita o termo de pesquisa em um campo de input e clica no botão "Pesquisar".
-Função pesquisar():
-- Obtém o valor do campo de pesquisa e o converte para minúsculas para facilitar a comparação.
-- Itera sobre o array dados, comparando o termo de pesquisa com o título, descrição e tags de cada atleta.
-- Constrói uma string HTML com os resultados encontrados, incluindo nome, descrição e link para cada atleta.
-- Atualiza a seção de resultados na página com a string HTML construída.
+- Node.js 20.9 ou superior
+- npm
 
-- Exibição dos Resultados: Os resultados da pesquisa são exibidos em uma lista, onde cada item representa um atleta encontrado.
+## Executar localmente
 
-Como Utilizar
-- Clonar o repositório: Clone este repositório para sua máquina local.
-- Abrir os arquivos: Abra os arquivos index.html, style.css, dados.js e app.js em um editor de código.
- 
-Personalizar:
-- Dados: Edite o arquivo dados.js para adicionar ou modificar os dados dos atletas.
-- Estilo: Personalize o estilo da página editando o arquivo style.css.
-- Abrir no navegador: Abra o arquivo index.html em um navegador web para visualizar a aplicação.
+```bash
+npm install
+npm run dev
+```
 
-Tecnologias Utilizadas
-- HTML: Estrutura da página.
-- CSS: Estilização da página.
-- JavaScript: Lógica da aplicação.
+Abra [http://localhost:3000](http://localhost:3000). Para produção, use `npm run build` e depois `npm start`.
+
+## API
+
+- `GET /api/atletas` lista os atletas do acervo local.
+- `GET /api/atletas?q=Rebeca` pesquisa atletas na API pública do Wikidata e combina os resultados com o acervo local. Fichas externas incluem modalidade, participações e reconhecimentos quando esses dados estão cadastrados.
+- `GET /api/esportes` consulta modalidades e quadro de medalhas da API pública de Paris 2024 da Codante.
+- `GET /api/esportes?q=Brasil` filtra modalidades e o quadro de medalhas.
+- `GET /api/curiosidades` lista curiosidades olímpicas.
+- `GET /api/curiosidades?q=chama` filtra as curiosidades por categoria, título ou texto.
+
+As respostas incluem consulta, fonte e resultados. O acervo local e as curiosidades vivem em `src/lib/olympics.ts`. A busca de atletas usa a API pública do Wikidata, com cache de uma hora. Modalidades e medalhas usam a API Codante, com cache de seis horas e Paris 2024 como edição coberta. Se uma API externa ficar indisponível, o app continua com os dados locais.
+
+## Tecnologias
+
+Next.js 16 App Router, React 19, TypeScript, Route Handlers e CSS responsivo.
